@@ -1,6 +1,15 @@
 # 3DOF_Robot_Control
 
+## Robot Dimensions
 
+![alt text](src/funny_3dof_robot/image.png)
+
+## Robot Workspace
+For in this Projects will not considering about Joint Limit or Collisions
+
+so we can determine the workspace by robot extend pose and fold pose
+
+![alt text](workspace.png)
 ## Installation and Setup
 
 ### Step 1: Clone the repository
