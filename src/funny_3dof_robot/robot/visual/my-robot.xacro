@@ -14,12 +14,12 @@
     <joint name="joint_0" type="fixed">
         <parent link="link_0"/>
         <child link="link_1"/>
-        <origin xyz="0 0 0"/>
+        <origin xyz="0 0 0.2"/>
     </joint>
 
     <link name="link_1">
     <visual>
-        <origin rpy="0 0 0" xyz="0 0 0.2"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
         <mesh filename="package://funny_3dof_robot/meshes/link_1.stl"/>
         </geometry>
@@ -29,14 +29,14 @@
     <joint name="joint_1" type="revolute">
         <parent link="link_1"/>
         <child link="link_2"/>
-        <axis xyz="0 1 0"/>
+        <axis xyz="0 0 1"/>
         <limit effort="100.0" lower="-1.57" upper="1.57" velocity="1.0"/>
-        <origin xyz="0 0 0.2"/>
+        <origin rpy="-1.57075 -1.57075  0" xyz="0 -0.12 0"/>
     </joint>
 
     <link name="link_2">
     <visual>
-        <origin rpy="-1.57075 -1.57075  0" xyz="0 -0.12 0"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
         <mesh filename="package://funny_3dof_robot/meshes/link_2.stl"/>
         </geometry>
@@ -48,12 +48,12 @@
         <child link="link_3"/>
         <axis xyz="0 0 1"/>
         <limit effort="100.0" lower="-1.57" upper="1.57" velocity="1.0"/>
-        <origin rpy="-1.57075 -1.57075  0" xyz="0 -0.12 0.25"/>
+        <origin rpy="0 0 0" xyz="0.25 0 0.1"/>
     </joint>
 
     <link name="link_3">
     <visual>
-        <origin rpy="0 0 0" xyz="0 0 0.1"/>
+        <origin rpy="0 0 0" xyz="0 0 0"/>
         <geometry>
         <mesh filename="package://funny_3dof_robot/meshes/link_3.stl"/>
         </geometry>
@@ -65,7 +65,7 @@
         <child link="end_effector"/>
         <axis xyz="0 0 1"/>
         <limit effort="100.0" lower="-1.57" upper="1.57" velocity="1.0"/>
-        <origin rpy="0 1.57 0" xyz="0.28 0 0.1"/>
+        <origin rpy="1.57 0 1.57" xyz="0.28 0 0"/>
     </joint>
 
     <link name="end_effector">
