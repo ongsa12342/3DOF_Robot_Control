@@ -1,5 +1,5 @@
 <?xml version="1.0"?>
-<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="example">
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="3DOF_Robot">
 
 
     <link name="link_0">
@@ -11,9 +11,10 @@
     </visual>
     </link>
 
-    <joint name="joint_0" type="fixed">
+    <joint name="joint_0" type="continuous">
         <parent link="link_0"/>
         <child link="link_1"/>
+        <axis xyz="0 0 1"/>
         <origin xyz="0 0 0.2"/>
     </joint>
 
@@ -30,7 +31,7 @@
         <parent link="link_1"/>
         <child link="link_2"/>
         <axis xyz="0 0 1"/>
-        <limit effort="100.0" lower="-1.57" upper="1.57" velocity="1.0"/>
+        <limit effort="100.0" lower="-3.14" upper="3.14" velocity="1.0"/>
         <origin rpy="-1.57075 -1.57075  0" xyz="0 -0.12 0"/>
     </joint>
 
@@ -47,7 +48,7 @@
         <parent link="link_2"/>
         <child link="link_3"/>
         <axis xyz="0 0 1"/>
-        <limit effort="100.0" lower="-1.57" upper="1.57" velocity="1.0"/>
+        <limit effort="100.0" lower="-3.14" upper="3.14" velocity="1.0"/>
         <origin rpy="0 0 0" xyz="0.25 0 0.1"/>
     </joint>
 
@@ -64,7 +65,7 @@
         <parent link="link_3"/>
         <child link="end_effector"/>
         <axis xyz="0 0 1"/>
-        <limit effort="100.0" lower="-1.57" upper="1.57" velocity="1.0"/>
+        <limit effort="100.0" lower="-3.14" upper="3.14" velocity="1.0"/>
         <origin rpy="1.57 0 1.57" xyz="0.28 0 0"/>
     </joint>
 
