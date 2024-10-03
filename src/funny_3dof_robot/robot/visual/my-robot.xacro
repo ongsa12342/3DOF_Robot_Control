@@ -61,11 +61,11 @@
     </visual>
     </link>
 
-    <joint name="joint_3" type="revolute">
+    <joint name="joint_3" type="fixed">
         <parent link="link_3"/>
         <child link="end_effector"/>
         <axis xyz="0 0 1"/>
-        <limit effort="100.0" lower="-3.14" upper="3.14" velocity="1.0"/>
+        <!-- <limit effort="100.0" lower="-3.14" upper="3.14" velocity="1.0"/> -->
         <origin rpy="1.57 0 1.57" xyz="0.28 0 0"/>
     </joint>
 
