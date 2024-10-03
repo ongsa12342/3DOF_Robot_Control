@@ -29,6 +29,7 @@ ament_python_install_package(${PROJECT_NAME})
 install(PROGRAMS
   scripts/dummy_script.py
   scripts/random_pose.py
+  scripts/controller.py
 
   DESTINATION lib/${PROJECT_NAME}
 )

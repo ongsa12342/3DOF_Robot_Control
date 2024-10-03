@@ -30,3 +30,9 @@ source ~/3DOF_Robot_Control/install/setup.bash
 ```bash
 echo "source ~/3DOF_Robot_Control/install/setup.bash" >> ~/.bashrc && source ~/.bashrc
 ```
+
+## Usage
+### run random position in workspace at /tartget
+```bash
+ros2 run funny_3dof_robot random_pose.py
+```
