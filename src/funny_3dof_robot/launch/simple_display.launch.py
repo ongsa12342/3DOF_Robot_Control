@@ -44,15 +44,21 @@ def generate_launch_description():
                                   parameters=parameters
     )
 
-    joint_state_publisher_gui = Node(
-        package='joint_state_publisher_gui',
-        executable='joint_state_publisher_gui'
-    )
+    # joint_state_publisher_gui = Node(
+    #     package='joint_state_publisher_gui',
+    #     executable='joint_state_publisher_gui'
+    # )
 
     launch_description = LaunchDescription()
+    con = Node(
+            package='funny_3dof_robot',
+            executable='controller.py',
+            name='controller_node',
+        )
+    launch_description.add_action(con)
     
     launch_description.add_action(rviz)
     launch_description.add_action(robot_state_publisher)
-    launch_description.add_action(joint_state_publisher_gui)
+    # launch_description.add_action(joint_state_publisher_gui)
     
     return launch_description

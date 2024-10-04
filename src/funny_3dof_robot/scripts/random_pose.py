@@ -15,7 +15,7 @@ class RandomPoseNode(Node):
         self.posestamp = self.create_publisher(
             PoseStamped, '/target', 10
         )
-        self.create_timer(1. / 10. , self.timer_callback)
+        self.create_timer(1. , self.timer_callback)
 
 
     def timer_callback(self):
