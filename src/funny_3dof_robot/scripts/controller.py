@@ -63,6 +63,7 @@ class ControllerNode(Node):
         if self.mode == 0:
             response.mode_response = self.IPK()
         
+        
         return response
     
     def target_callback(self, msg):
@@ -81,7 +82,11 @@ class ControllerNode(Node):
         msg.position = self.robot_q.tolist()
 
         self.joint_state.publish(msg)
-    
+
+        if self.mode == 1:
+            self.ID()
+        elif self.mode == 2:
+            self.auto()
     def IPK(self):
         T = SE3(self.target_pos)
 
@@ -94,7 +99,12 @@ class ControllerNode(Node):
             self.robot_q = self.target_q
             return True
         return False
+    
+    def ID(self):
+        pass
 
+    def auto(self):
+        pass
 
 def main(args=None):
     rclpy.init(args=args)

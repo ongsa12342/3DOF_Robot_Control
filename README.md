@@ -36,7 +36,7 @@ echo "source ~/3DOF_Robot_Control/install/setup.bash" >> ~/.bashrc && source ~/.
 ## Usage
 ### run launch to open rviz and controller node
 ```bash
-ros2 ros2 launch funny_3dof_robot simple_display.launch.py 
+ros2 launch funny_3dof_robot simple_display.launch.py 
 ```
 ### run random position in workspace at /tartget
 you can run this after launch file to see random pose and do IPK from this point
@@ -58,3 +58,5 @@ ros2 service call /mode funny_3dof_robot_interfaces/srv/Mode "mode_request: 0"
 ```
 
 call service 0 to do an IPK
+
+may be something wrong with DH parameter
