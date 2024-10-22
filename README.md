@@ -51,7 +51,7 @@ robot mode can call by using service `Mode` at /mode with 3 mode
 - 1 : Teleoperation
 - 2 : Teleoperation
 
-Example for changing mode by service
+#### Example for changing mode by service (run this for mode 0)
 
 ```bash
 ros2 service call /mode funny_3dof_robot_interfaces/srv/Mode "mode_request: 0"

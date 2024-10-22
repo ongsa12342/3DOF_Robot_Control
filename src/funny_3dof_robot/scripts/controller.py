@@ -32,12 +32,12 @@ class ControllerNode(Node):
 
 
         self.robot = rtb.DHRobot([
-            rtb.RevoluteDH(a=0, alpha=0, d=0.2),  #F1
-            rtb.RevoluteDH(alpha= -np.pi/2, qlim=[0,0]),
-            rtb.RevoluteDH(d=-0.12,offset=-np.pi/2), #F2
-            rtb.RevoluteDH(a=0.25, d=0.1, qlim=[0,0]), #F3
-            rtb.RevoluteDH(a=0.28, alpha=0)
+            rtb.RevoluteMDH(a=0, alpha = 0, d=0.2),  #F1
+            rtb.RevoluteMDH(a=0, alpha=-np.pi/2, d=-0.12 ,offset=-np.pi/2),
+            rtb.RevoluteMDH(a=0.25,d=0.1), #F3
+            
         ], name="robot")
+        self.robot.tool = SE3.Trans(0.28, 0.0, 0.0) * SE3.RPY(np.pi/2, 0, np.pi/2)
 # header:
 #   stamp:
 #     sec: 1727995167
@@ -88,17 +88,17 @@ class ControllerNode(Node):
         elif self.mode == 2:
             self.auto()
     def IPK(self):
-        T = SE3(self.target_pos)
+        T = SE3.Trans(self.target_pos)
 
-        solution = self.robot.ikine_min(T, qlim=True)
-
+        solution = self.robot.ikine_LM(T, mask=[1, 1, 1, 0, 0, 0],tol=0.1)
         if solution.success:
             self.target_q[0] = solution.q[0]
-            self.target_q[1] = solution.q[2]
-            self.target_q[2] = solution.q[4]
+            self.target_q[1] = solution.q[1]
+            self.target_q[2] = solution.q[2]
             self.robot_q = self.target_q
             return True
-        return False
+        else:
+            return False
     
     def ID(self):
         pass

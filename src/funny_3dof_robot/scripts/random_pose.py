@@ -22,12 +22,12 @@ class RandomPoseNode(Node):
         msg = PoseStamped()
         msg.header.frame_id = "link_0"
         msg.header.stamp = self.get_clock().now().to_msg()
-        theta1 = np.random.uniform(0,2*np.pi,1)[0]
+        theta1 = np.random.uniform(0,np.pi,1)[0]
         theta2 = np.random.uniform(0,2*np.pi,1)[0]
-        r = np.random.uniform(0.3,0.58,1)[0]
+        r = np.random.uniform(0.3,0.53,1)[0]
         msg.pose.position.x = r*np.sin(theta1)*np.cos(theta2)
         msg.pose.position.y = r*np.sin(theta1)*np.sin(theta2)
-        msg.pose.position.z= r*np.cos(theta2)
+        msg.pose.position.z= r*np.cos(theta1)
         print(msg.pose.position.x,msg.pose.position.y,msg.pose.position.z)
         self.posestamp.publish(msg)
 
